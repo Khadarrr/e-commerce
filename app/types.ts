@@ -19,17 +19,3 @@ export type Review = {
     reviews: Review[];
   };
   
-
-  
-  export type CartItem ={
-    id: string;
-    quantity: number;
-    product: Product;
-    imageUrl: string;
-  }
-  
-  export type CartState = {
-    cartItems: CartItem[];
-    totalItems: number;
-    totalPrice: number;
-  }
