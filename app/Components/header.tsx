@@ -1,6 +1,3 @@
-import Image from "next/image"
-import Mainimg from "../../public/homepage-image.jpg"
-import ecomimg from "../../public/e-com.jpg"
 import { AiFillFire } from "react-icons/ai";
 
 export default function() {
