@@ -5,10 +5,9 @@ import Header from "./Components/header";
 import { SparklesCore } from "./Components/UI/sparkles";
 import Products from "../app/Components/products"; // 
 import ecomimg from "../public/e-com.jpg";
-import { Product } from "./types";
 import "./globals.css";
 
-export default function Home({ products }: { products: Product[] }) {
+export default function Home() {
   return (
     <>
       <Header />
