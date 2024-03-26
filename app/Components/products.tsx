@@ -1,4 +1,4 @@
-"use client"
+
 import { useEffect, useState } from 'react';
 import { Product } from '../types'; 
 
@@ -114,4 +114,4 @@ const ProductsPage = () => {
   );
 };
 
-export default ProductsPage;
+export default (ProductsPage);
