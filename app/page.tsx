@@ -5,7 +5,7 @@ import Header from "./Components/header";
 import { SparklesCore } from "./Components/UI/sparkles";
 import Products from "../app/Components/products"; // 
 import ecomimg from "../public/e-com.jpg";
-import "./globals.css";
+
 
 export default function Home() {
   return (
