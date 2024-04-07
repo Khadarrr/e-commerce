@@ -30,7 +30,7 @@ const CheckoutSuccessPage: React.FC = () => {
   return (
     <div className="container mx-auto  flex flex-col items-center">
     <h1 className="text-3xl font-bold text-center mb-8">Order Successful!</h1>
-    <p className="text-lg text-center mb-12">Thank you for your order. We'll get it processed right away!</p>
+    <p className="text-lg text-center mb-12">Thank you for your order. We&apos;ll get it processed right away!</p>
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col space-y-4">
         <div className="flex flex-col">
