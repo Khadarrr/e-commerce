@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Link from 'next/link';
-import useCartStore from "../Store/cart"; // Import the cart store
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import Link from "next/link";
+import useCartStore from "../Store/cart"; 
 
 interface ContactFormInputs {
   fullName: string;
@@ -18,11 +18,11 @@ const CheckoutSuccessPage: React.FC = () => {
 
   const onSubmit = (data: ContactFormInputs) => {
     setSubmitting(true);
-    // Send form data to server or perform any desired action
+
     setTimeout(() => {
       setSubmitting(false);
       console.log(data);
-      // Clear the cart after submitting the form
+
       emptyCart();
     }, 1000);
   };
