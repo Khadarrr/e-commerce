@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../types';
-import useCartStore from '../Store/cart'; // Import the cart store
+import useCartStore from '../Store/cart'; 
 
 const ProductCard = ({ product }: { product: Product }) => {
-  const addToCart = useCartStore(state => state.addToCart); // Get addToCart function from the cart store
+  const addToCart = useCartStore(state => state.addToCart); 
 
   const handleAddToCart = () => {
-    addToCart(product); // Call addToCart function with the product as parameter
+    addToCart(product); 
   };
 
   return (
@@ -97,7 +97,7 @@ const ProductsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-medium text-gray-900">Products</h1>
+      <h1 className="text-2xl font-medium text-900">Products</h1>
       {products.length > 0 ? (
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {products.map((product) => (

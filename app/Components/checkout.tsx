@@ -28,66 +28,65 @@ const CheckoutSuccessPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto mt-8 text-center">
-      <h1 className="text-3xl font-bold mb-4">Order Successful!</h1>
-      <p className="text-lg mb-4">Thank you for your order.</p>
-      <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
-          <label htmlFor="fullName" className="block text-gray-700">Full Name</label>
+    <div className="container mx-auto  flex flex-col items-center">
+    <h1 className="text-3xl font-bold text-center mb-8">Order Successful!</h1>
+    <p className="text-lg text-center mb-12">Thank you for your order. We'll get it processed right away!</p>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col space-y-4">
+        <div className="flex flex-col">
+          <label htmlFor="fullName" className="text-sm font-medium mb-1">Full Name</label>
           <input
             type="text"
             id="fullName"
-            className={`form-input mt-1 block w-full ${errors.fullName ? 'border-red-500' : ''}`}
+            className="shadow-sm rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             {...register('fullName', { required: true, minLength: 3 })}
           />
-          {errors.fullName && <p className="text-red-500 text-sm mt-1">Minimum 3 characters required</p>}
+          {errors.fullName && <p className="text-red-500 text-xs mt-1">Minimum 3 characters required</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="subject" className="block text-gray-700">Subject</label>
+        <div className="flex flex-col">
+          <label htmlFor="subject" className="text-sm font-medium mb-1">Subject</label>
           <input
             type="text"
             id="subject"
-            className={`form-input mt-1 block w-full ${errors.subject ? 'border-red-500' : ''}`}
+            className="shadow-sm rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             {...register('subject', { required: true, minLength: 3 })}
           />
-          {errors.subject && <p className="text-red-500 text-sm mt-1">Minimum 3 characters required</p>}
+          {errors.subject && <p className="text-red-500 text-xs mt-1">Minimum 3 characters required</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-700">Email</label>
+        <div className="flex flex-col">
+          <label htmlFor="email" className="text-sm font-medium mb-1">Email</label>
           <input
             type="email"
             id="email"
-            className={`form-input mt-1 block w-full ${errors.email ? 'border-red-500' : ''}`}
+            className="shadow-sm rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-blue-500"
             {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">Please enter a valid email address</p>}
+          {errors.email && <p className="text-red-500 text-xs mt-1">Please enter a valid email address</p>}
         </div>
-        <div className="mb-4">
-          <label htmlFor="body" className="block text-gray-700">Message</label>
+        <div className="flex flex-col">
+          <label htmlFor="body" className="text-sm font-medium mb-1">Message</label>
           <textarea
             id="body"
-            className={`form-textarea mt-1 block w-full ${errors.body ? 'border-red-500' : ''}`}
+            className="shadow-sm rounded-md border border-gray-300 px-3 py-2 h-24 resize-none focus:outline-none focus:ring-1 focus:ring-blue-500"
             rows={4}
             {...register('body', { required: true, minLength: 3 })}
           />
-          {errors.body && <p className="text-red-500 text-sm mt-1">Minimum 3 characters required</p>}
+          {errors.body && <p className="text-red-500 text-xs mt-1">Minimum 3 characters required</p>}
         </div>
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          disabled={submitting}
-        >
-          {submitting ? 'Submitting...' : 'Submit'}
-        </button>
-      </form>
-      {/* Use Link for client-side navigation */}
-      <div className="mt-4">
-        <Link href="/"
-          className="text-blue-500 hover:underline">Return to Home
-        </Link>
       </div>
+      <button
+        type="submit"
+        className="inline-flex items-center px-4 py-2 mt-8 bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-md shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 disabled:opacity-50"
+        disabled={submitting}
+      >
+        {submitting ? 'Submitting...' : 'Submit'}
+      </button>
+    </form>
+    <div className="mt-8 text-center">
+      <Link href="/" className="text-blue-500 hover:underline">Return to Home</Link>
     </div>
+  </div>
+  
   );
 };
 
