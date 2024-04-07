@@ -1,6 +1,7 @@
-// pages/cart.tsx
+
 import useCartStore from "../Store/cart";
 import { Product } from "../types";
+import Link from "next/link";
 
 const CartPage = () => {
   const { cart, removeFromCart } = useCartStore();
@@ -37,7 +38,7 @@ const CartPage = () => {
           </div>
           <div className="mt-8">
             <button className="bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 focus:outline-none">
-              Continue to Checkout
+            <Link href="/checkout">Continue to Checkout</Link>
             </button>
           </div>
         </>

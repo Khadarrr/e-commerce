@@ -1,6 +1,6 @@
 import { AiFillFire } from "react-icons/ai";
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
-import Link  from 'next/link'; // Import Link from next/link
+import Link  from 'next/link'; 
 import useCartStore from "../Store/cart";
 import { Product } from "../types";
 
@@ -92,7 +92,7 @@ export default function Header() {
             >
               <div className="card-body">
                 <span className="font-bold text-lg">{cart.reduce((total, item) => total + item.quantity, 0)} Items</span>
-                <span className="text-info">Subtotal: ${roundedSubtotal}</span> {/* Display subtotal */}
+                <span className="text-info">Subtotal: ${roundedSubtotal}</span> 
 
                 <div className="mt-2">
                   {cart.map((item) => (

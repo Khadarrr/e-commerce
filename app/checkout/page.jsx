@@ -1,7 +1,7 @@
 "use client";
 
 import Header from "../Components/header";
-import CartPage from "../Components/cartPage";
+import CheckOutPage from "../Components/checkout";
 
 
 
@@ -12,7 +12,7 @@ export default function cartPage() {
         <div className="h-screen bg-black">
           
           <div className="black-background">
-          <CartPage/>
+          <CheckOutPage/>
           </div>
         </div>
     </>
