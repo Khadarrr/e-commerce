@@ -1,5 +1,4 @@
 "use client"
-import React, { useEffect, useState } from 'react';
 import { Product } from '../types';
 
 interface ProductDetailPageProps {
@@ -46,7 +45,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
-                {/* Icon for product rating */}
               </svg>
               <p className="text-sm">{product.rating}</p>
             </div>
@@ -65,8 +63,5 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     </div>
   );
 };
-
-// Assuming you have a parent component where you fetch products
-// and pass them as props to ProductDetailPage
 
 export default ProductDetailPage;

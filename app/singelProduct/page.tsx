@@ -4,7 +4,7 @@ import ProductDetailPage from '../Components/productDetail';
 import { SparklesCore } from "../Components/UI/sparkles";
 import { Product } from '../types';
 
-export default function ProductPage() { // Renamed from CartPage to ProductPage
+export default function ProductPage() { 
   const product: Product = {
     id: '1',
     title: 'Product Title',
