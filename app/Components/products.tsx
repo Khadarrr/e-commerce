@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Product } from '../types';
 import useCartStore from '../Store/cart'; 
+import Link from 'next/link';
 
 const ProductCard = ({ product }: { product: Product }) => {
   const addToCart = useCartStore(state => state.addToCart); 
@@ -11,55 +12,61 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
-      <div className="md:w-1/3">
-        <img
-          className="w-full h-auto object-cover"
-          src={product.imageUrl}
-          alt={product.title}
-        />
+    <div className="md:w-1/3">
+      <img
+        className="w-full h-auto object-cover"
+        src={product.imageUrl}
+        alt={product.title}
+      />
+    </div>
+    <div className="p-6 flex flex-col justify-between md:w-2/3">
+      <div>
+        <h2 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h2>
+        <p className="text-base text-gray-600 mb-4">{product.description}</p>
       </div>
-      <div className="p-6 flex flex-col justify-between md:w-2/3">
-        <div>
-          <h2 className="text-xl font-semibold text-gray-900 mb-2">{product.title}</h2>
-          <p className="text-base text-gray-600 mb-4">{product.description}</p>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center">
+          <p className="text-lg font-semibold text-gray-900 mr-2">${product.price}</p>
+          {product.discountedPrice && (
+            <p className="text-sm line-through text-gray-500">${product.discountedPrice}</p>
+          )}
         </div>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <p className="text-lg font-semibold text-gray-900 mr-2">${product.price}</p>
-            {product.discountedPrice && (
-              <p className="text-sm line-through text-gray-500">${product.discountedPrice}</p>
-            )}
-          </div>
-          <div className="flex items-center space-x-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-yellow-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10 2a1 1 0 011 1v5.25l4.06 2.361a1 1 0 01.122 1.637l-3.712 3.625 1.25 5.25a1 1 0 01-1.532 1.054l-4.438-3.188-4.438 3.188a1 1 0 01-1.532-1.054l1.25-5.25-3.712-3.625a1 1 0 01.122-1.637L9 8.25V3a1 1 0 011-1z"
-                clipRule="evenodd"
-              />
-            </svg>
-            <p className="text-sm">{product.rating}</p>
-          </div>
+        <div className="flex items-center space-x-1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-yellow-500"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 2a1 1 0 011 1v5.25l4.06 2.361a1 1 0 01.122 1.637l-3.712 3.625 1.25 5.25a1 1 0 01-1.532 1.054l-4.438-3.188-4.438 3.188a1 1 0 01-1.532-1.054l1.25-5.25-3.712-3.625a1 1 0 01.122-1.637L9 8.25V3a1 1 0 011-1z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <p className="text-sm">{product.rating}</p>
         </div>
-        <div className="mt-4">
-          <ul className="flex flex-wrap gap-2">
-            {product.tags.map((tag) => (
-              <li key={tag} className="px-2 py-1 bg-gray-100 text-gray-600 text-sm rounded">
-                {tag}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <button onClick={handleAddToCart} className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      <div className="mt-4">
+        <ul className="flex flex-wrap gap-2">
+          {product.tags.map((tag, index) => (
+            <li key={index} className="px-2 py-1 bg-gray-100 text-gray-600 text-sm rounded">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="mt-4 flex justify-between">
+        <button onClick={() => addToCart(product)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
           Add to Cart
         </button>
+        <Link href="/singelProduct/[id]" as={`/singelProduct`}
+          className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500">
+            View Product
+        </Link>
       </div>
     </div>
+  </div>
   );
 };
 

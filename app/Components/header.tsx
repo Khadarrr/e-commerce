@@ -1,3 +1,4 @@
+"use client"
 import { AiFillFire } from "react-icons/ai";
 import { FaPlus, FaMinus, FaTrash } from "react-icons/fa";
 import Link  from 'next/link'; 
